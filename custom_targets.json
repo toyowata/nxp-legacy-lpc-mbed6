@@ -1,0 +1,80 @@
+{
+    "MCU_LPC11U35_501": {
+        "inherits": ["LPCTarget"],
+        "core": "Cortex-M0",
+        "default_toolchain": "ARM",
+        "extra_labels": ["NXP", "LPC11UXX"],
+        "macros": [
+            "CMSIS_VECTAB_VIRTUAL",
+            "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
+        ],
+        "supported_toolchains": ["ARM", "GCC_ARM"],
+        "device_has": [
+            "ANALOGIN",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PORTIN",
+            "PORTINOUT",
+            "PORTOUT",
+            "PWMOUT",
+            "SERIAL",
+            "SLEEP",
+            "SPI",
+            "SPISLAVE",
+            "USTICKER"
+        ],
+        "overrides": {
+            "tickless-from-us-ticker": true,
+            "boot-stack-size": "0x300"
+        },
+        "supported_c_libs": {
+            "arm": [
+                "std", "small"
+            ],
+            "gcc_arm": [
+                "std", "small"
+            ],
+            "iar": [
+                "std"
+            ]
+        },
+        "c_lib": "small",
+        "supported_application_profiles": [
+            "bare-metal"
+        ],
+        "device_name": "LPC11U35FHI33/501"
+    },
+    "AE_LPC11U35_MB": {
+        "inherits": ["MCU_LPC11U35_501"],
+        "detect_code": ["CTW0"]
+    },
+    "AIRIO_BASE": {
+        "inherits": ["MCU_LPC11U35_501"],
+        "detect_code": ["CTW1"]
+    },
+    "BLUEPILL": {
+        "inherits": [
+            "MCU_STM32"
+        ],
+        "core": "Cortex-M3",
+        "default_toolchain": "ARMC6",
+        "extra_labels_add": [
+            "STM32F1",
+            "STM32F103C8"
+        ],
+        "supported_toolchains": [
+            "ARMC6",
+            "GCC_ARM"
+        ],
+        "device_has_add": [
+            "CAN",
+            "SERIAL_ASYNCH",
+            "FLASH"
+        ],
+        "device_has_remove": [
+            "STDIO_MESSAGES",
+            "LPTICKER"
+        ]
+    }
+}
