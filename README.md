@@ -6,4 +6,11 @@ Custom target boards support for legacy NXP LPC series MCU
 * [Akizuki denshi AE-LPC11U35-MB](http://akizukidenshi.com/catalog/g/gK-12144/)
 * [Crane Electronics Airio Base](https://crane-elec.co.jp/products/vol-14_airio-base/)
 
+## Support target plan
+
+* SSCI824
+* LPCXpresso1549
+
 ## DAPLink firmware binary
+
+... comming soon
