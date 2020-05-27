@@ -14,3 +14,7 @@ Custom target boards support for legacy NXP LPC series MCU
 ## DAPLink firmware binary
 
 ... comming soon
+
+## How to add custom target to mbed-os-tools
+
+https://github.com/ARMmbed/mbed-os-tools/tree/master/packages/mbed-ls#mocking-renaming-platforms
