@@ -18,3 +18,9 @@ Custom target boards support for legacy NXP LPC series MCU
 ## How to add custom target to mbed-os-tools
 
 https://github.com/ARMmbed/mbed-os-tools/tree/master/packages/mbed-ls#mocking-renaming-platforms
+
+Example: Adding AE-LPC11U35-MB custom target
+
+```
+$ mbedls --mock CTY0:AE_LPC11U35_MB
+```
