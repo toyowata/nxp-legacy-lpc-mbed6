@@ -52,29 +52,5 @@
     "AIRIO_BASE": {
         "inherits": ["MCU_LPC11U35_501"],
         "detect_code": ["CTW1"]
-    },
-    "BLUEPILL": {
-        "inherits": [
-            "MCU_STM32"
-        ],
-        "core": "Cortex-M3",
-        "default_toolchain": "ARMC6",
-        "extra_labels_add": [
-            "STM32F1",
-            "STM32F103C8"
-        ],
-        "supported_toolchains": [
-            "ARMC6",
-            "GCC_ARM"
-        ],
-        "device_has_add": [
-            "CAN",
-            "SERIAL_ASYNCH",
-            "FLASH"
-        ],
-        "device_has_remove": [
-            "STDIO_MESSAGES",
-            "LPTICKER"
-        ]
     }
 }
