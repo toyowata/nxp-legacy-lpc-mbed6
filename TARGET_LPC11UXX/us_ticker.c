@@ -25,6 +25,9 @@
 int us_ticker_inited = 0;
 
 void us_ticker_init(void) {
+    // First, disabled interrupt
+    us_ticker_disable_interrupt();
+    
     if (us_ticker_inited) return;
     us_ticker_inited = 1;
     

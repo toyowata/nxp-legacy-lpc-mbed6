@@ -1,6 +1,8 @@
 {
-    "requires": ["bare-metal"],
-    "macros": [
+    "requires": [
+        "bare-metal"
+    ],
+    "macros":   [
         "MBED_BLINKY_EXAMPLE=1"
     ],
     "target_overrides": {
@@ -9,6 +11,11 @@
             "platform.stdio-convert-newlines"   : true,
             "platform.stdio-buffered-serial"    : true,
             "platform.stdio-flush-at-exit"      : true
+        }
+    },
+    "config": {
+        "main-stack-size": {
+            "value": 2048
         }
     }
 }

@@ -10,7 +10,6 @@ MEMORY
 {
   FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 64K
   RAM (rwx) : ORIGIN = 0x100000C0, LENGTH = 0x1F40
-  USB_RAM (rwx): ORIGIN = 0x20004000, LENGTH = 0x800
 }
 
 /* Linker script to place sections and symbol values. Should be used together

@@ -26,6 +26,52 @@
         ],
         "overrides": {
             "tickless-from-us-ticker": true,
+            "boot-stack-size": "0x400"
+        },
+        "supported_c_libs": {
+            "arm": [
+                "std", "small"
+            ],
+            "gcc_arm": [
+                "std", "small"
+            ]
+        },
+        "supported_application_profiles": [
+            "rtos", "bare-metal"
+        ]
+    },
+    "AE_LPC11U35_MB": {
+        "inherits": ["MCU_LPC11U35_501"],
+        "device_name": "LPC11U35FHI33/501",
+        "detect_code": ["CA00"]
+    },
+    "AIRIO_BASE": {
+        "inherits": ["LPCTarget"],
+        "core": "Cortex-M0",
+        "default_toolchain": "ARM",
+        "extra_labels": ["NXP", "LPC11UXX"],
+        "macros": [
+            "CMSIS_VECTAB_VIRTUAL",
+            "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
+        ],
+        "supported_toolchains": ["ARM", "GCC_ARM"],
+        "device_has": [
+            "ANALOGIN",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PORTIN",
+            "PORTINOUT",
+            "PORTOUT",
+            "PWMOUT",
+            "SERIAL",
+            "SLEEP",
+            "SPI",
+            "SPISLAVE",
+            "USTICKER"
+        ],
+        "overrides": {
+            "tickless-from-us-ticker": true,
             "boot-stack-size": "0x300"
         },
         "supported_c_libs": {
@@ -34,23 +80,12 @@
             ],
             "gcc_arm": [
                 "std", "small"
-            ],
-            "iar": [
-                "std"
             ]
         },
-        "c_lib": "small",
         "supported_application_profiles": [
-            "bare-metal"
+            "rtos", "bare-metal"
         ],
-        "device_name": "LPC11U35FHI33/501"
-    },
-    "AE_LPC11U35_MB": {
-        "inherits": ["MCU_LPC11U35_501"],
-        "detect_code": ["CTW0"]
-    },
-    "AIRIO_BASE": {
-        "inherits": ["MCU_LPC11U35_501"],
-        "detect_code": ["CTW1"]
+        "device_name": "LPC11U35FBD48/401",
+        "detect_code": ["CA01"]
     }
 }

@@ -134,6 +134,8 @@ typedef enum {
 
     UART_TX = P0_19,
     UART_RX = P0_18,
+    
+    USER_BUTTON = P0_1,
 
     // Not connected
     NC = (int)0xFFFFFFFF,

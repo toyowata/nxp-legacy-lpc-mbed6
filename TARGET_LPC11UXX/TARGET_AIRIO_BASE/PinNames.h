@@ -142,6 +142,8 @@ typedef enum {
     LED3 = P0_7,
     LED4 = P1_13,
 
+    USER_BUTTON = P0_1,
+
     UART_TX = P0_19,
     UART_RX = P0_18,
 

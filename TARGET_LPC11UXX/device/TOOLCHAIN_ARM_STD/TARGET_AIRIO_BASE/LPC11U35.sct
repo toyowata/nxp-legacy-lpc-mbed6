@@ -45,12 +45,4 @@ LR_IROM1  MBED_APP_START  MBED_APP_SIZE  {    ; load region size_region
   ARM_LIB_STACK  (MBED_RAM_START+MBED_RAM_SIZE)  EMPTY  -MBED_BOOT_STACK_SIZE { ; stack
   }
 
-  RW_IRAM2 0x20000000 0x800   { ; RW data, I/O Handler RAM
-   .ANY (IOHANDLER_RAM)
-  }
-
-  RW_IRAM3 0x20004000 0x800   { ; RW data, USB RAM
-   .ANY (USBRAM)
-  }
-
 }
