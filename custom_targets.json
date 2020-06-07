@@ -87,5 +87,81 @@
         ],
         "device_name": "LPC11U35FBD48/401",
         "detect_code": ["CA01"]
+    },
+    "LPC824": {
+        "supported_form_factors": ["ARDUINO"],
+        "core": "Cortex-M0+",
+        "extra_labels": ["NXP", "LPC82X"],
+        "is_disk_virtual": true,
+        "supported_toolchains": ["ARM", "GCC_ARM"],
+        "default_toolchain": "ARM",
+        "inherits": ["LPCTarget"],
+        "device_has": [
+            "ANALOGIN",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PWMOUT",
+            "SERIAL",
+            "SLEEP",
+            "SPI",
+            "SPISLAVE",
+            "USTICKER"
+        ],
+        "supported_c_libs": {
+            "arm": [
+                "std", "small"
+            ],
+            "gcc_arm": [
+                "std", "small"
+            ]
+        },
+        "c_lib": "small",
+        "supported_application_profiles": [
+            "bare-metal"
+        ],
+        "overrides": {
+            "tickless-from-us-ticker": true,
+            "boot-stack-size": "0x400"
+        },
+        "device_name": "LPC824M201JDH20",
+        "detect_code": ["0824"]
+    },
+    "SSCI824": {
+        "inherits": ["LPCTarget"],
+        "core": "Cortex-M0+",
+        "extra_labels": ["NXP", "LPC82X"],
+        "is_disk_virtual": true,
+        "supported_toolchains": ["ARM", "GCC_ARM"],
+        "default_toolchain": "ARM",
+        "device_has": [
+            "ANALOGIN",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PWMOUT",
+            "SERIAL",
+            "SLEEP",
+            "SPI",
+            "SPISLAVE",
+            "USTICKER"
+        ],
+        "supported_c_libs": {
+            "arm": [
+                "std", "small"
+            ],
+            "gcc_arm": [
+                "std", "small"
+            ]
+        },
+        "c_lib": "small",
+        "supported_application_profiles": [
+            "bare-metal"
+        ],
+        "overrides": {
+            "tickless-from-us-ticker": true,
+            "boot-stack-size": "0x400"
+        },
+        "device_name": "LPC824M201JDH20"
     }
 }
