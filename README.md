@@ -15,10 +15,10 @@ $ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
 * [Crane Electronics Airio Base](https://crane-elec.co.jp/products/vol-14_airio-base/)
 * [Switch Science mbed LPC824](https://os.mbed.com/platforms/Switch-Science-mbed-LPC824/)
 * [NXP LPCXpresso824-MAX](https://os.mbed.com/platforms/LPCXpresso824-MAX/)
+* [NXP LPCXpresso1549](https://os.mbed.com/platforms/LPCXpresso1549/)
 
 ## Support target plan
 
-* LPCXpresso1549 (OM13056UL)
 * LPCXpresso1769 (OM13085)
 
 ## DAPLink firmware binary
