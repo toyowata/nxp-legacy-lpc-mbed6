@@ -12,7 +12,10 @@ int main()
     // Initialise the digital pin LED1 as an output
     DigitalOut led(LED1);
 
-    printf("hello, Mbed OS 6\n");
+#ifdef MBED_MAJOR_VERSION
+    printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
+#endif
+    printf("hello, Mbed OS\n");
     while (true) {
         led = !led;
         thread_sleep_for(500);
