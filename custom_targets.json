@@ -201,5 +201,68 @@
             "bare-metal"
         ],
         "device_name": "LPC1549JBD64"
+    },
+    "LPC1769": {
+        "core": "Cortex-M3",
+        "supported_toolchains": [
+            "ARM",
+            "GCC_ARM",
+            "IAR"
+        ],
+        "supported_c_libs": {
+            "arm": [
+                "std",
+                "small"
+            ],
+            "gcc_arm": [
+                "std",
+                "small"
+            ],
+            "iar": [
+                "std"
+            ]
+        },
+        "extra_labels": [
+            "NXP",
+            "LPC176X",
+            "NXP_EMAC"
+        ],
+        "macros": [
+            "TARGET_LPC1768"
+        ],
+        "inherits": [
+            "LPCTarget"
+        ],
+        "device_has": [
+            "ANALOGIN",
+            "ANALOGOUT",
+            "CAN",
+            "DEBUG_AWARENESS",
+            "EMAC",
+            "ETHERNET",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PORTIN",
+            "PORTINOUT",
+            "PORTOUT",
+            "PWMOUT",
+            "SERIAL",
+            "SERIAL_FC",
+            "SLEEP",
+            "SPI",
+            "SPISLAVE",
+            "STDIO_MESSAGES",
+            "FLASH",
+            "MPU",
+            "USBDEVICE",
+            "USTICKER",
+            "WATCHDOG",
+            "RESET_REASON"
+        ],
+        "device_name": "LPC1769",
+        "detect_code": [
+            "1010"
+        ]
     }
 }

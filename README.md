@@ -11,15 +11,14 @@ $ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
 
 ## Support target board
 
-* [Akizuki denshi AE-LPC11U35-MB](http://akizukidenshi.com/catalog/g/gK-12144/)
-* [Crane Electronics Airio Base](https://crane-elec.co.jp/products/vol-14_airio-base/)
-* [Switch Science mbed LPC824](https://os.mbed.com/platforms/Switch-Science-mbed-LPC824/)
-* [NXP LPCXpresso824-MAX](https://os.mbed.com/platforms/LPCXpresso824-MAX/)
-* [NXP LPCXpresso1549](https://os.mbed.com/platforms/LPCXpresso1549/)
-
-## Support target plan
-
-* LPCXpresso1769 (OM13085)
+|Board|Target name|
+|---|---|
+|[Akizuki denshi AE-LPC11U35-MB](http://akizukidenshi.com/catalog/g/gK-12144/)| AE_LPC11U35_MB|
+|[Crane Electronics Airio Base](https://crane-elec.co.jp/products/vol-14_airio-base/)|AIRIO_BASE|
+|[Switch Science mbed LPC824](https://os.mbed.com/platforms/Switch-Science-mbed-LPC824/)|SSCI824|
+|[NXP LPCXpresso824-MAX](https://os.mbed.com/platforms/LPCXpresso824-MAX/)|LPC824|
+|[NXP LPCXpresso1549](https://os.mbed.com/platforms/LPCXpresso1549/)|LPC1549|
+|[NXP LPCXpresso1769 (OM13085)](https://www.embeddedartists.com/products/lpcxpresso1769/)|LPC1769|
 
 ## DAPLink firmware binary
 

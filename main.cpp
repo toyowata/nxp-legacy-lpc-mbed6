@@ -16,6 +16,7 @@ int main()
     printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
 #endif
     printf("hello, Mbed OS\n");
+    printf("SystemCoreClock = %ld\n", SystemCoreClock);
     while (true) {
         led = !led;
         thread_sleep_for(500);
