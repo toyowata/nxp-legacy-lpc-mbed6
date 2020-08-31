@@ -626,7 +626,7 @@ int can_read(can_t *obj, CAN_Message *msg, int handle) {
     if (handle == 0) {
         uint32_t newdata = LPC_C_CAN0->CANND1 | (LPC_C_CAN0->CANND2 << 16);
         // Find first free messagebox
-        for (i = 0; i < RX_MSG_OBJ_COUNT; i++) {
+        for (i = 0; i <= RX_MSG_OBJ_COUNT; i++) {
             if (newdata & (1 << i)) {
                 handle = i+1;
                 break;
