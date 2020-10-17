@@ -212,6 +212,11 @@ void pwmout_period_us(pwmout_t* obj, int us)
     }
 }
 
+int pwmout_read_period_us(pwmout_t *obj)
+{
+    return (obj->pwm->MATCHREL[(obj->pwm_ch * 2) + 1] + 1);
+}
+
 void pwmout_pulsewidth(pwmout_t* obj, float seconds)
 {
     pwmout_pulsewidth_us(obj, seconds * 1000000.0f);
@@ -233,6 +238,11 @@ void pwmout_pulsewidth_us(pwmout_t* obj, int us)
         // output level tied to low
         obj->pwm->OUTPUT &= ~(1 << obj->pwm_ch);
     }
+}
+
+int pwmout_read_pulsewidth_us(pwmout_t *obj)
+{
+    return (obj->pwm->MATCHREL[(obj->pwm_ch * 2) + 1] + 1);
 }
 
 const PinMap *pwmout_pinmap()

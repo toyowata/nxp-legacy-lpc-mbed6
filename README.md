@@ -23,7 +23,8 @@ $ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
 ## DAPLink firmware binary
 
 * DAPLink interface firmware for Airio Base [lpc11u35_airio_base_if_crc.bin](./daplink/lpc11u35_airio_base_if_crc.bin)
-
+* DAPLink interface firmware for AE-LPC11U35-MB [ae-lpc11u35-mb_crc.zip](https://www.dropbox.com/s/36kayln4iz1vbbk/ae-lpc11u35-mb_crc.zip?dl=0)  
+Reference: https://qiita.com/toyowata/items/a57ee1dfa884b29c298d
 
 ## How to add custom target to mbed-os-tools
 
