@@ -116,7 +116,6 @@
                 "std", "small"
             ]
         },
-        "c_lib": "small",
         "supported_application_profiles": [
             "bare-metal"
         ],
@@ -154,7 +153,6 @@
                 "std", "small"
             ]
         },
-        "c_lib": "small",
         "supported_application_profiles": [
             "bare-metal"
         ],
@@ -170,7 +168,7 @@
         "core": "Cortex-M3",
         "default_toolchain": "ARM",
         "extra_labels": ["NXP", "LPC15XX"],
-        "supported_toolchains": ["ARM", "GCC_ARM", "IAR"],
+        "supported_toolchains": ["ARM", "GCC_ARM"],
         "detect_code": ["1549"],
         "device_has": [
             "ANALOGIN",
@@ -196,7 +194,6 @@
                 "std", "small"
             ]
         },
-        "c_lib": "small",
         "supported_application_profiles": [
             "bare-metal"
         ],
@@ -206,8 +203,7 @@
         "core": "Cortex-M3",
         "supported_toolchains": [
             "ARM",
-            "GCC_ARM",
-            "IAR"
+            "GCC_ARM"
         ],
         "supported_c_libs": {
             "arm": [
@@ -217,9 +213,6 @@
             "gcc_arm": [
                 "std",
                 "small"
-            ],
-            "iar": [
-                "std"
             ]
         },
         "extra_labels": [
@@ -260,9 +253,53 @@
             "WATCHDOG",
             "RESET_REASON"
         ],
+        "supported_application_profiles": [
+            "rtos", "bare-metal"
+        ],
         "device_name": "LPC1769",
         "detect_code": [
             "1010"
         ]
+    },
+    "LPC11U68": {
+        "supported_form_factors": ["ARDUINO"],
+        "core": "Cortex-M0+",
+        "default_toolchain": "ARM",
+        "extra_labels": ["NXP", "LPC11U6X"],
+        "supported_toolchains": ["ARM", "GCC_ARM"],
+        "supported_c_libs": {
+            "arm": [
+                "std",
+                "small"
+            ],
+            "gcc_arm": [
+                "std",
+                "small"
+            ]
+        },
+        "inherits": ["LPCTarget"],
+        "detect_code": ["1168"],
+        "device_has": [
+            "ANALOGIN",
+            "I2C",
+            "I2CSLAVE",
+            "INTERRUPTIN",
+            "PWMOUT",
+            "SERIAL",
+            "SLEEP",
+            "SPI",
+            "USTICKER"
+        ],
+        "macros": [
+            "MBED_FAULT_HANDLER_DISABLED"
+        ],
+        "overrides": {
+            "tickless-from-us-ticker": true,
+            "boot-stack-size": "0x400"
+        },
+        "supported_application_profiles": [
+            "rtos", "bare-metal"
+        ],
+        "device_name": "LPC11U68JBD100"
     }
 }
