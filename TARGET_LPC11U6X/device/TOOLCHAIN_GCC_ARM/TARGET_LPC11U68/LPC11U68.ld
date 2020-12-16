@@ -10,15 +10,15 @@ STACK_SIZE = MBED_BOOT_STACK_SIZE;
 MEMORY
 {
   /* Define each memory region */
-  MFlash256 (rx) : ORIGIN = 0x0, LENGTH = 0x40000 /* 256K bytes */
-  Ram0_32 (rwx) : ORIGIN = 0x10000000+0x100, LENGTH = 0x8000-0x100 /* 32K bytes */
-  Ram1_2 (rwx) : ORIGIN = 0x20000000, LENGTH = 0x800 /* 2K bytes */
-  Ram2USB_2 (rwx) : ORIGIN = 0x20004000, LENGTH = 0x800 /* 2K bytes */
+  FLASH (rx) : ORIGIN = 0x0, LENGTH = 256K
+  Ram0_32 (rwx) : ORIGIN = 0x10000000 + 0x100, LENGTH = (32K-0x100)
+  Ram1_2 (rwx) : ORIGIN = 0x20000000, LENGTH = 2K
+  Ram2USB_2 (rwx) : ORIGIN = 0x20004000, LENGTH = 2K
 
 
 }
   /* Define a symbol for the top of each memory region */
-  __top_MFlash256 = 0x0 + 0x40000;
+  __top_FLASH = 0x0 + 0x40000;
   __top_Ram0_32 = 0x10000000 + 0x8000;
   __top_Ram1_2 = 0x20000000 + 0x800;
   __top_Ram2USB_2 = 0x20004000 + 0x800;
@@ -27,12 +27,13 @@ ENTRY(ResetISR)
 
 SECTIONS
 {
-
     /* MAIN TEXT SECTION */    
     .text : ALIGN(8)
     {
+/*
         FILL(0xff)
         __vectors_start__ = ABSOLUTE(.) ;
+*/
         KEEP(*(.isr_vector))
         
         /* Global Section Table */
@@ -50,6 +51,7 @@ SECTIONS
         LONG(  SIZEOF(.data_RAM3));
         __data_section_table_end = .;
         __bss_section_table = .;
+        __bss_start__ = .;
         LONG(    ADDR(.bss));
         LONG(  SIZEOF(.bss));
         LONG(    ADDR(.bss_RAM2));
@@ -57,6 +59,7 @@ SECTIONS
         LONG(    ADDR(.bss_RAM3));
         LONG(  SIZEOF(.bss_RAM3));
         __bss_section_table_end = .;
+        __bss_end__ = .;
         __section_table_end = . ;
         /* End of Global Section Table */
         
@@ -84,6 +87,7 @@ SECTIONS
         
         KEEP(*(.fini));
         
+/*
         . = ALIGN(0x4);
         KEEP (*crtbegin.o(.ctors))
         KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
@@ -95,7 +99,22 @@ SECTIONS
         KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
         KEEP (*(SORT(.dtors.*)))
         KEEP (*crtend.o(.dtors))
-    } > MFlash256
+*/
+
+        /* .ctors */
+        *crtbegin.o(.ctors)
+        *crtbegin?.o(.ctors)
+        *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+        *(SORT(.ctors.*))
+        *(.ctors)
+
+        /* .dtors */
+        *crtbegin.o(.dtors)
+        *crtbegin?.o(.dtors)
+        *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+        *(SORT(.dtors.*))
+        *(.dtors)
+    } > FLASH
 
     /*
      * for exception handling/unwind - some Newlib functions (in common
@@ -104,13 +123,13 @@ SECTIONS
     .ARM.extab : ALIGN(8)
     {
     	*(.ARM.extab* .gnu.linkonce.armextab.*)
-    } > MFlash256
+    } > FLASH
     __exidx_start = .;
     
     .ARM.exidx : ALIGN(8)
     {
     	*(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > MFlash256
+    } > FLASH
     __exidx_end = .;
     
     _etext = .;
@@ -131,7 +150,7 @@ SECTIONS
     	*(.data.$RAM2*)
     	*(.data.$Ram1_2*)
        . = ALIGN(8) ;
-    } > Ram1_2 AT>MFlash256
+    } > Ram1_2 AT>FLASH
     /* possible MTB section for Ram2USB_2 */
     .mtb_buffer_RAM3 (NOLOAD) :
     {
@@ -148,7 +167,7 @@ SECTIONS
     	*(.data.$RAM3*)
     	*(.data.$Ram2USB_2*)
        . = ALIGN(8) ;
-    } > Ram2USB_2 AT>MFlash256
+    } > Ram2USB_2 AT>FLASH
     
     /* MAIN DATA SECTION */
     
@@ -176,7 +195,7 @@ SECTIONS
 	   *(.data*)
 	   . = ALIGN(8) ;
 	   _edata = . ;
-	} > Ram0_32 AT>MFlash256
+	} > Ram0_32 AT>FLASH
 
     /* BSS section for Ram1_2 */
     .bss_RAM2 : ALIGN(8)

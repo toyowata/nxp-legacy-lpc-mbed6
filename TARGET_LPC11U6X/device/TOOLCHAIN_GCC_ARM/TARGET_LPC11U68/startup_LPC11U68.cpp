@@ -14,6 +14,7 @@ extern unsigned int __bss_section_table_end;
 
 extern void __libc_init_array(void);
 extern int main(void);
+extern int _start(void);
 extern void _vStackTop(void);
 extern void (* const g_pfnVectors[])(void);
 
@@ -149,12 +150,8 @@ AFTER_VECTORS void ResetISR(void) {
     }
     
     SystemInit();
-    if (software_init_hook) 
-        software_init_hook(); 
-    else {
-        __libc_init_array();
-        main();
-    }
+    __libc_init_array();
+    _start();
     while (1) {;}
 }
 
