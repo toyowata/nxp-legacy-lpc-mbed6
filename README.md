@@ -48,5 +48,4 @@ Remove `"bare-metal"` from `requires` key in the mbed_app.json.
 ```
 
 ## Known issues
-* `GCC_ARM` build for the LPC11U68 target doesn't run properly
 * Mbed CLI 2 (mbed-tools) doesn't support custom board build yet
