@@ -1,5 +1,6 @@
 /* mbed Microcontroller Library - CMSIS
- * Copyright (C) 2009-2011 ARM Limited. All rights reserved.
+ * Copyright (C) 2009-2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  * 
  * A generic CMSIS include header, pulling in LPC8xx specifics
  */

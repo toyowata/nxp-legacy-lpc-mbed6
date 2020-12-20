@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2011 ARM Limited. All rights reserved.
+ * Copyright (C) 2009-2020 ARM Limited. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

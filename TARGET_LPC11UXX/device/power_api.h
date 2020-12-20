@@ -1,3 +1,8 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2020 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 /****************************************************************************
  *   $Id:: power_api.h 6249 2011-01-25 19:23:47Z usb01267                   $
  *   Project: NXP LPC11Uxx software example  

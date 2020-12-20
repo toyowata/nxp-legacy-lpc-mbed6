@@ -4,8 +4,9 @@
  * Version: V1.2
  * Date: 15 Nov 2011
  * 
- * Copyright (c) 2011, ARM Limited
+ * Copyright (c) 2011-2020, ARM Limited
  * All rights reserved.
+ SPDX-License-Identifier: Apache-2.0
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

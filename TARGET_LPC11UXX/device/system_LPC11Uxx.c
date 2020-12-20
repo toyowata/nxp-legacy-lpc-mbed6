@@ -6,7 +6,8 @@
  * @date     24. November 2010
  *
  * @note
- * Copyright (C) 2009-2010 ARM Limited. All rights reserved.
+ * Copyright (C) 2009-2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @par
  * ARM Limited (ARM) is supplying this software for use with Cortex-M 

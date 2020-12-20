@@ -6,7 +6,8 @@
  * @date:    16. Aug. 2012
  *----------------------------------------------------------------------------
  *
- * Copyright (C) 2012 ARM Limited. All rights reserved.
+ * Copyright (C) 2012-2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  *
  * ARM Limited (ARM) is supplying this software for use with Cortex-M0+
  * processor based microcontrollers.  This file can be freely distributed
@@ -338,6 +339,7 @@ void SystemCoreClockUpdate (void)            /* Get Core Clock Frequency      */
  *         Initialize the System.
  */
 void SystemInit (void) {
+  volatile uint32_t i;
 
   /* System clock to the IOCON & the SWM need to be enabled or
   most of the I/O related peripherals won't work. */
@@ -346,7 +348,6 @@ void SystemInit (void) {
 #if (CLOCK_SETUP)                                 /* Clock Setup              */
 
 #if ((SYSPLLCLKSEL_Val & 0x03) == 1)
-  volatile uint32_t i;
   LPC_IOCON->PIO0_8 &= ~(0x3 << 3);
   LPC_IOCON->PIO0_9 &= ~(0x3 << 3);
   LPC_SWM->PINENABLE0 &= ~(0x3 << 6);             /* XTALIN and XTALOUT       */

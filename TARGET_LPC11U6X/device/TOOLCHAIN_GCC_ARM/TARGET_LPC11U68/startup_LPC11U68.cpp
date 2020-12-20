@@ -1,3 +1,8 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2020 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 extern "C" {
 
 #include "LPC11U6x.h"

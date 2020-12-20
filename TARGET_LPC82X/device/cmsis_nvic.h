@@ -1,7 +1,7 @@
 /* mbed Microcontroller Library
  *******************************************************************************
- * Copyright (c) 2011 ARM Limited. All rights reserved.
- * All rights reserved.
+ * Copyright (c) 2011-2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

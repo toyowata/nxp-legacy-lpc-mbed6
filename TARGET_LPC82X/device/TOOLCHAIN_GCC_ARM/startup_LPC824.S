@@ -6,6 +6,7 @@
  * 
  * Copyright (c) 2011, ARM Limited
  * All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -196,4 +197,3 @@ Reset_Handler:
     def_irq_default_handler    PININT7_IRQHandler
 
     .end
-

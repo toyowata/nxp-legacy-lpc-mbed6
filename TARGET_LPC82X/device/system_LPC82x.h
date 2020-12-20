@@ -6,17 +6,8 @@
  * @date:    16. Aug. 2012
  *----------------------------------------------------------------------------
  *
- * Copyright (C) 2012 ARM Limited. All rights reserved.
- *
- * ARM Limited (ARM) is supplying this software for use with Cortex-M0+
- * processor based microcontrollers.  This file can be freely distributed
- * within development tools that are supporting such ARM based processors.
- *
- * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
- * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
- * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
- * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ * Copyright (C) 2012-2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  *
  ******************************************************************************/
 

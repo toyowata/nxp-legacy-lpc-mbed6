@@ -7,6 +7,8 @@
 ; *------- <<< Use Configuration Wizard in Context Menu >>> ------------------
 ; *
 ; * Copyright (C) 2012 ARM Limited. All rights reserved.
+; * SPDX-License-Identifier: Apache-2.0
+; *
 ; * ARM Limited (ARM) is supplying this software for use with Cortex-M0+
 ; * processor based microcontrollers.  This file can be freely distributed
 ; * within development tools that are supporting such ARM based processors.

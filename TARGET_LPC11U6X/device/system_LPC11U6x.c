@@ -6,7 +6,8 @@
  * @date     19. July 2013
  *
  * @note
- * Copyright (C) 2013 ARM Limited. All rights reserved.
+ * Copyright (C) 2020 ARM Limited. All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @par
  * ARM Limited (ARM) is supplying this software for use with Cortex-M
@@ -56,7 +57,7 @@
 //
 //     <h> WD Oscillator Setting (WDTOSCCTRL)
 //       <o.0..4> DIVSEL: Select Divider for Fclkana
-//              <i> wd_osc_clk = Fclkana / (2 × (1 + DIVSEL))
+//              <i> wd_osc_clk = Fclkana / (2 ï¿½ (1 + DIVSEL))
 //            <0-31>
 //       <o.5..8> FREQSEL: Select WD Oscillator Analog Output Frequency (Fclkana)
 //            <1=> 0.5 MHz
