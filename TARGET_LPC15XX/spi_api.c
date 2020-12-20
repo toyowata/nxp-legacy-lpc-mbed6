@@ -142,7 +142,7 @@ static int get_available_spi(PinName mosi, PinName miso, PinName sclk, PinName s
             if (sclk != NC) {
                 swm = &SWM_SPI_SCLK[spi_n];
                 regVal = LPC_SWM->PINASSIGN[swm->n] & (0xFF << swm->offset);
-                if (regVal != (sclk << swm->offset)) {
+                if (regVal != (uint32_t)(sclk << swm->offset)) {
                     // Existing pin is not the same as the one we want
                     continue;
                 }
@@ -151,7 +151,7 @@ static int get_available_spi(PinName mosi, PinName miso, PinName sclk, PinName s
             if (mosi != NC) {
                 swm = &SWM_SPI_MOSI[spi_n];
                 regVal = LPC_SWM->PINASSIGN[swm->n] & (0xFF << swm->offset);
-                if (regVal != (mosi << swm->offset)) {
+                if (regVal != (uint32_t)(mosi << swm->offset)) {
                     // Existing pin is not the same as the one we want
                     continue;
                 }
@@ -160,7 +160,7 @@ static int get_available_spi(PinName mosi, PinName miso, PinName sclk, PinName s
             if (miso != NC) {
                 swm = &SWM_SPI_MISO[spi_n];
                 regVal = LPC_SWM->PINASSIGN[swm->n] & (0xFF << swm->offset);
-                if (regVal != (miso << swm->offset)) {
+                if (regVal != (uint32_t)(miso << swm->offset)) {
                     // Existing pin is not the same as the one we want
                     continue;
                 }
@@ -169,7 +169,7 @@ static int get_available_spi(PinName mosi, PinName miso, PinName sclk, PinName s
             if (ssel != NC) {
                 swm = &SWM_SPI_SSEL[spi_n];
                 regVal = LPC_SWM->PINASSIGN[swm->n] & (0xFF << swm->offset);
-                if (regVal != (ssel << swm->offset)) {
+                if (regVal != (uint32_t)(ssel << swm->offset)) {
                     // Existing pin is not the same as the one we want
                     continue;
                 }

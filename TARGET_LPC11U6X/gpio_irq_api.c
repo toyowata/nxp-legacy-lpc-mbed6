@@ -81,7 +81,7 @@ int gpio_irq_init(gpio_irq_t *obj, PinName pin, gpio_irq_handler handler, uint32
     LPC_SYSCON->SYSAHBCLKCTRL |= ((1 << 19) | (1 << 16) | (1 << 7));
     
     /* Gets offset value for each port */
-    uint32_t offset;
+    uint32_t offset = 0;
     switch ((pin >> PORT_SHIFT) & 0x3) {
         case 0: offset = 0; // PIO0[23:0]
                 break;
