@@ -39,7 +39,7 @@ target_sources(${APP_TARGET}
 
 target_link_libraries(${APP_TARGET}
     PRIVATE
-        mbed-os
+        mbed-baremetal
 )
 
 mbed_set_post_build(${APP_TARGET})
