@@ -9,17 +9,15 @@
         "sd"
     ],
     "macros":   [
-        "MBED_BLINKY_EXAMPLE=0",
-        "MBED_FILESYSTEM_EXAMPLE=1"
+        "MBED_BLINKY_EXAMPLE=1",
+        "MBED_FILESYSTEM_EXAMPLE=0"
     ],
     "target_overrides": {
         "*": {
+            "target.c_lib": "small",
             "target.printf_lib": "minimal-printf",
             "platform.minimal-printf-enable-floating-point": false,
-            "platform.stdio-baud-rate"          : 115200,
-            "platform.stdio-convert-newlines"   : true,
-            "platform.stdio-buffered-serial"    : true,
-            "platform.stdio-flush-at-exit"      : true
+            "platform.stdio-baud-rate"          : 115200
         },
         "AIRIO_BASE": {
             "target.components_add"             : ["SD"],

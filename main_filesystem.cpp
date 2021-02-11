@@ -24,6 +24,8 @@
 #include "SDBlockDevice.h"
 
 #ifdef TARGET_AIRIO_BASE
+DigitalOut sd_en(P1_16, 1);
+
 //InterruptIn irq(USER_BUTTON);
 #else
 //InterruptIn irq(BUTTON1);
@@ -31,17 +33,9 @@
 
 // Maximum number of elements in buffer
 #define BUFFER_MAX_LEN 10
-#define FORCE_REFORMAT true
+#define FORCE_REFORMAT false
 
-// This will take the system's default block device
-//BlockDevice *bd = BlockDevice::get_default_instance();
 SDBlockDevice bd;
-
-// Instead of the default block device, you can define your own block device.
-// For example: HeapBlockDevice with size of 2048 bytes, read size 1, write size 1 and erase size 512.
-// #include "HeapBlockDevice.h"
-// BlockDevice *bd = new HeapBlockDevice(2048, 1, 1, 512);
-
 
 // This example uses LittleFileSystem as the default file system
 #include "LittleFileSystem.h"
@@ -51,48 +45,11 @@ LittleFileSystem fs("fs");
 // #include "FATFileSystem.h"
 // FATFileSystem fs("fs");
 
-
-
-void erase() {
-    printf("Initializing the block device... ");
-    fflush(stdout);
-    int err = bd.init();
-    printf("%s\n", (err ? "Fail :(" : "OK"));
-    if (err) {
-        error("error: %s (%d)\n", strerror(-err), err);
-    }
-
-    printf("Erasing the block device... ");
-    fflush(stdout);
-    err = bd.erase(0, bd.size());
-    printf("%s\n", (err ? "Fail :(" : "OK"));
-    if (err) {
-        error("error: %s (%d)\n", strerror(-err), err);
-    }
-
-    printf("Deinitializing the block device... ");
-    fflush(stdout);
-    err = bd.deinit();
-    printf("%s\n", (err ? "Fail :(" : "OK"));
-    if (err) {
-        error("error: %s (%d)\n", strerror(-err), err);
-    }
-}
-
-static auto erase_event = mbed_event_queue()->make_user_allocated_event(erase);
-
 // Entry point for the example
 int main() {
-#ifdef TARGET_AIRIO_BASE
-DigitalOut sd_en(P1_16, 1);
-    sd_en = 1;
-#endif
 
+    thread_sleep_for(500);
     printf("--- Mbed OS filesystem example ---\n");
-
-    // Setup the erase event on button press, use the event queue
-    // to avoid running in interrupt context
-//    irq.fall(std::ref(erase_event));
 
     // Try to mount the filesystem
     printf("Mounting the filesystem... ");
@@ -226,10 +183,12 @@ DigitalOut sd_en(P1_16, 1);
     }
 
     printf("numbers:\n");
+/*
     while (!feof(f)) {
         int c = fgetc(f);
         printf("%c", c);
     }
+*/
 
     printf("\rClosing \"/fs/numbers.txt\"... ");
     fflush(stdout);
@@ -249,6 +208,9 @@ DigitalOut sd_en(P1_16, 1);
     }
         
     printf("Mbed OS filesystem example done!\n");
+
+    while(1)
+        ;
 }
 
 #endif
