@@ -1,16 +1,39 @@
 {
     "requires": [
-        "bare-metal"
+        "bare-metal",
+        "events",
+        "blockdevice",
+        "filesystem",
+        "littlefs",
+        "fat_chan",
+        "sd"
     ],
     "macros":   [
-        "MBED_BLINKY_EXAMPLE=1"
+        "MBED_BLINKY_EXAMPLE=0",
+        "MBED_FILESYSTEM_EXAMPLE=1"
     ],
     "target_overrides": {
         "*": {
+            "target.printf_lib": "minimal-printf",
+            "platform.minimal-printf-enable-floating-point": false,
             "platform.stdio-baud-rate"          : 115200,
             "platform.stdio-convert-newlines"   : true,
             "platform.stdio-buffered-serial"    : true,
             "platform.stdio-flush-at-exit"      : true
+        },
+        "AIRIO_BASE": {
+            "target.components_add"             : ["SD"],
+            "sd.SPI_MOSI"                       : "P0_21",
+            "sd.SPI_MISO"                       : "P0_22",
+            "sd.SPI_CLK"                        : "P1_15",
+            "sd.SPI_CS"                         : "P0_17"
+        },
+        "LPC11U68": {
+            "target.components_add"             : ["SD"],
+            "sd.SPI_MOSI"                       : "D11",
+            "sd.SPI_MISO"                       : "D12",
+            "sd.SPI_CLK"                        : "D13",
+            "sd.SPI_CS"                         : "D10"
         }
     },
     "config": {

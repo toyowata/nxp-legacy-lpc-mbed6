@@ -35,11 +35,14 @@ project(${APP_TARGET})
 target_sources(${APP_TARGET}
     PRIVATE
         main.cpp
+        main_filesystem.cpp
 )
 
 target_link_libraries(${APP_TARGET}
     PRIVATE
         mbed-baremetal
+        mbed-events
+        mbed-storage
 )
 
 mbed_set_post_build(${APP_TARGET})
