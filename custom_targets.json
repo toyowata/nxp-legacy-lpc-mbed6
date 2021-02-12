@@ -45,6 +45,11 @@
         "device_name": "LPC11U35FHI33/501",
         "detect_code": ["CA00"]
     },
+    "LPC11U35_501": {
+        "inherits": ["MCU_LPC11U35_501"],
+        "device_name": "LPC11U35FHI33/501",
+        "detect_code": ["9007"]
+    },
     "AIRIO_BASE": {
         "inherits": ["LPCTarget"],
         "core": "Cortex-M0",

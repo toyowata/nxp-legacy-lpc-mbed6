@@ -11,6 +11,9 @@ include(${MBED_PATH}/tools/cmake/app.cmake)
 
 add_subdirectory(${MBED_PATH})
 
+if("LPC11U68" IN_LIST MBED_TARGET_LABELS)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/TARGET_LPC11U6X)
+endif()
 if("LPC11UXX" IN_LIST MBED_TARGET_LABELS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/TARGET_LPC11UXX)
 endif()
