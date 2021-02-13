@@ -20,7 +20,7 @@ extern unsigned int __bss_section_table_end;
 extern void __libc_init_array(void);
 extern int main(void);
 extern int _start(void);
-extern void _vStackTop(void);
+extern void __StackTop(void);
 extern void (* const g_pfnVectors[])(void);
 
      void ResetISR(void);
@@ -66,7 +66,7 @@ void USBWakeup_IRQHandler (void) ALIAS(IntDefaultHandler);
 __attribute__ ((section(".isr_vector")))
 void (* const g_pfnVectors[])(void) = {
 	// Core Level - CM0
-    &_vStackTop,                     // The initial stack pointer
+    &__StackTop,                     // The initial stack pointer
     ResetISR,                        // The reset handler
     NMI_Handler,                     // The NMI handler
     HardFault_Handler,               // The hard fault handler
@@ -162,9 +162,9 @@ AFTER_VECTORS void ResetISR(void) {
 
 AFTER_VECTORS void NMI_Handler       (void) {}
 AFTER_VECTORS void HardFault_Handler (void) {}
-AFTER_VECTORS void MemManage_Handler (void) {}
-AFTER_VECTORS void BusFault_Handler  (void) {}
-AFTER_VECTORS void UsageFault_Handler(void) {}
+//AFTER_VECTORS void MemManage_Handler (void) {}
+//AFTER_VECTORS void BusFault_Handler  (void) {}
+//AFTER_VECTORS void UsageFault_Handler(void) {}
 AFTER_VECTORS void SVC_Handler       (void) {}
 AFTER_VECTORS void DebugMon_Handler  (void) {}
 AFTER_VECTORS void PendSV_Handler    (void) {}

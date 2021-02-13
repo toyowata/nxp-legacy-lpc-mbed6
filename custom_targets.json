@@ -281,8 +281,7 @@
                 "small"
             ],
             "gcc_arm": [
-                "std",
-                "small"
+                "std"
             ]
         },
         "inherits": ["LPCTarget"],
@@ -297,9 +296,6 @@
             "SLEEP",
             "SPI",
             "USTICKER"
-        ],
-        "macros": [
-            "MBED_FAULT_HANDLER_DISABLED"
         ],
         "overrides": {
             "tickless-from-us-ticker": true,

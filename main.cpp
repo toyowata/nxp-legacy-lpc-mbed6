@@ -13,6 +13,7 @@ int main()
     DigitalOut led(LED1);
     thread_sleep_for(500);
 
+    printf("[Build] %s %s\n", __DATE__, __TIME__);
 #ifdef MBED_MAJOR_VERSION
     printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
 #endif
