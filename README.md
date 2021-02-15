@@ -1,14 +1,26 @@
 # NXP legacy LPC target support for Mbed OS 6 baremetal
-Custom target boards support for legacy NXP LPC series MCU
+Custom target boards support for legacy NXP LPC series MCUs
 
 # How to build and flash to target board
 
+## Mbed CLI 1
 ```
 $ mbed import https://github.com/toyowata/nxp-legacy-lpc-mbed6
 $ cd nxp-legacy-lpc-mbed6
-$ mbed deploy
 $ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
 ```
+## Mbed CLI 2
+```
+$ mbed-tools import https://github.com/toyowata/nxp-legacy-lpc-mbed6
+$ cd nxp-legacy-lpc-mbed6
+$ mbed-tools compile -m AE_LPC11U35_MB -t gcc_arm --flash
+```
+## Mbed Studio
+* Launch Mbed Studio application
+* Menu [File] - [Import Program...]
+* Put `https://github.com/toyowata/nxp-legacy-lpc-mbed6` in the URL box
+* Press `Add Program` button
+* Select target and build program
 
 ## Support target board
 
@@ -48,4 +60,5 @@ Remove `"bare-metal"` from `requires` key in the mbed_app.json.
 ```
 
 ## Known issues
-* Mbed CLI 2 (mbed-tools) doesn't support custom board build yet
+* LPC11U68 GCC_ARM build doesn't support small c_lib
+* LPC824 CLI2 build (GCC_ARM) binary doesn't boot-up

@@ -194,7 +194,7 @@ USBPhyHw::USBPhyHw(void) {
     LPC_SYSCON->PRESETCTRL1 &= ~(CLK_USB);
 
 #else
-    #if defined(TARGET_LPC11U35_401) || defined(TARGET_MCU_LPC11U35_501)|| defined(TARGET_AIRIO_BASE)
+    #if defined(TARGET_MCU_LPC11U35) || defined(TARGET_AIRIO_BASE)
     // USB_VBUS input with pull-down
     LPC_IOCON->PIO0_3 = 0x00000009;
     #endif

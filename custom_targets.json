@@ -1,5 +1,5 @@
 {
-    "MCU_LPC11U35_501": {
+    "MCU_LPC11U35": {
         "inherits": ["LPCTarget"],
         "core": "Cortex-M0",
         "default_toolchain": "ARM",
@@ -41,12 +41,12 @@
         ]
     },
     "AE_LPC11U35_MB": {
-        "inherits": ["MCU_LPC11U35_501"],
+        "inherits": ["MCU_LPC11U35"],
         "device_name": "LPC11U35FHI33/501",
         "detect_code": ["CA00"]
     },
     "LPC11U35_501": {
-        "inherits": ["MCU_LPC11U35_501"],
+        "inherits": ["MCU_LPC11U35"],
         "device_name": "LPC11U35FHI33/501",
         "detect_code": ["9007"]
     },
