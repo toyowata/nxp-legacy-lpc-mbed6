@@ -560,7 +560,7 @@ int can_write(can_t *obj, CAN_Message msg, int cc) {
     uint16_t msgnum = 0;
     uint32_t txPending = (LPC_C_CAN0->CANTXREQ1 & 0xFF) | (LPC_C_CAN0->CANTXREQ2 << 16);
     uint16_t i = 0;
-    for(i = RX_MSG_OBJ_COUNT; i < 32; i++) {
+    for(i = TX_MSG_OBJ_COUNT; i < 32; i++) {
         if ((txPending & (1 << i)) == 0) {
             msgnum = i+1;
             break;
