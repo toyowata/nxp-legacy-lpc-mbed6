@@ -36,17 +36,20 @@
                 "std", "small"
             ]
         },
+        "release_versions": ["5"],
         "supported_application_profiles": [
             "rtos", "bare-metal"
         ]
     },
     "AE_LPC11U35_MB": {
         "inherits": ["MCU_LPC11U35"],
+        "release_versions": ["5"],
         "device_name": "LPC11U35FHI33/501",
         "detect_code": ["CA00"]
     },
     "LPC11U35_501": {
         "inherits": ["MCU_LPC11U35"],
+        "release_versions": ["5"],
         "device_name": "LPC11U35FHI33/501",
         "detect_code": ["9007"]
     },
@@ -93,6 +96,7 @@
         "supported_application_profiles": [
             "rtos", "bare-metal"
         ],
+        "release_versions": ["5"],
         "device_name": "LPC11U35FBD48/401",
         "detect_code": ["CA01"]
     },
@@ -131,6 +135,7 @@
             "tickless-from-us-ticker": true,
             "boot-stack-size": "0x400"
         },
+        "release_versions": ["5"],
         "device_name": "LPC824M201JDH20",
         "detect_code": ["0824"]
     },
@@ -168,6 +173,7 @@
             "tickless-from-us-ticker": true,
             "boot-stack-size": "0x400"
         },
+        "release_versions": ["5"],
         "device_name": "LPC824M201JDH20"
     },
     "LPC1549": {
@@ -205,6 +211,7 @@
         "supported_application_profiles": [
             "bare-metal"
         ],
+        "release_versions": ["5"],
         "device_name": "LPC1549JBD64"
     },
     "LPC1769": {
@@ -264,10 +271,8 @@
         "supported_application_profiles": [
             "rtos", "bare-metal"
         ],
-        "device_name": "LPC1769",
-        "detect_code": [
-            "1010"
-        ]
+        "release_versions": ["5"],
+        "device_name": "LPC1769"
     },
     "LPC11U68": {
         "supported_form_factors": ["ARDUINO"],
@@ -281,7 +286,8 @@
                 "small"
             ],
             "gcc_arm": [
-                "std"
+                "std",
+                "small"
             ]
         },
         "inherits": ["LPCTarget"],
@@ -304,6 +310,7 @@
         "supported_application_profiles": [
             "rtos", "bare-metal"
         ],
+        "release_versions": ["5"],
         "device_name": "LPC11U68JBD100"
     }
 }

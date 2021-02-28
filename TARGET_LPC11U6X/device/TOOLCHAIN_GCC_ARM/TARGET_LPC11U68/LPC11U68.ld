@@ -22,52 +22,14 @@ MEMORY
   __top_Ram1_2 = 0x20000000 + 0x800;
   __top_Ram2USB_2 = 0x20004000 + 0x800;
 
-ENTRY(ResetISR)
+ENTRY(Reset_Handler)
 
 SECTIONS
 {
     /* MAIN TEXT SECTION */    
     .text : ALIGN(8)
     {
-/*
-        FILL(0xff)
-        __vectors_start__ = ABSOLUTE(.) ;
-*/
-        KEEP(*(.isr_vector))
-        
-        /* Global Section Table */
-        . = ALIGN(8) ;
-        __section_table_start = .;
-        __data_section_table = .;
-        LONG(LOADADDR(.data));
-        LONG(    ADDR(.data));
-        LONG(  SIZEOF(.data));
-#if 0
-        LONG(LOADADDR(.data_RAM2));
-        LONG(    ADDR(.data_RAM2));
-        LONG(  SIZEOF(.data_RAM2));
-        LONG(LOADADDR(.data_RAM3));
-        LONG(    ADDR(.data_RAM3));
-        LONG(  SIZEOF(.data_RAM3));
-#endif
-        __data_section_table_end = .;
-        __bss_section_table = .;
-        __bss_start__ = .;
-        LONG(    ADDR(.bss));
-        LONG(  SIZEOF(.bss));
-#if 0
-        LONG(    ADDR(.bss_RAM2));
-        LONG(  SIZEOF(.bss_RAM2));
-        LONG(    ADDR(.bss_RAM3));
-        LONG(  SIZEOF(.bss_RAM3));
-#endif
-        __bss_section_table_end = .;
-        __bss_end__ = .;
-        __section_table_end = . ;
-        /* End of Global Section Table */
-        
-
-        *(.after_vectors*)
+        KEEP(*(.isr_vector))        
         
         *(.text*)
         *(.rodata .rodata.*)
@@ -90,20 +52,6 @@ SECTIONS
         
         KEEP(*(.fini));
         
-/*
-        . = ALIGN(0x4);
-        KEEP (*crtbegin.o(.ctors))
-        KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
-        KEEP (*(SORT(.ctors.*)))
-        KEEP (*crtend.o(.ctors))
-        
-        . = ALIGN(0x4);
-        KEEP (*crtbegin.o(.dtors))
-        KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
-        KEEP (*(SORT(.dtors.*)))
-        KEEP (*crtend.o(.dtors))
-*/
-
         /* .ctors */
         *crtbegin.o(.ctors)
         *crtbegin?.o(.ctors)
@@ -149,113 +97,14 @@ SECTIONS
 	    _edata = . ;
 	} > Ram0_32 AT>FLASH
 
-#if 0
-    /* possible MTB section for Ram1_2 */
-    .mtb_buffer_RAM2 (NOLOAD) :
-    {
-        KEEP(*(.mtb.$RAM2*))
-        KEEP(*(.mtb.$RAM1_2*))
-    } > Ram1_2 
-    
-    /* DATA section for Ram1_2 */
-    .data_RAM2 : ALIGN(8)
-    {
-        FILL(0xff)
-        *(.ramfunc.$RAM2)
-        *(.ramfunc.$Ram1_2)
-        *(.data.$RAM2*)
-        *(.data.$Ram1_2*)
-        . = ALIGN(8) ;
-    } > Ram1_2 AT>FLASH
-    /* possible MTB section for Ram2USB_2 */
-    .mtb_buffer_RAM3 (NOLOAD) :
-    {
-        KEEP(*(.mtb.$RAM3*))
-        KEEP(*(.mtb.$RAM2USB_2*))
-    } > Ram2USB_2 
-    
-    /* DATA section for Ram2USB_2 */
-    .data_RAM3 : ALIGN(8)
-    {
-        FILL(0xff)
-        *(.ramfunc.$RAM3)
-        *(.ramfunc.$Ram2USB_2)
-    	*(.data.$RAM3*)
-    	*(.data.$Ram2USB_2*)
-        . = ALIGN(8) ;
-    } > Ram2USB_2 AT>FLASH
-    
-    /* MAIN DATA SECTION */
-    
-    /* Default MTB section */
-    .mtb_buffer_default (NOLOAD) :
-    {
-        KEEP(*(.mtb*))
-    } > Ram0_32 
-
-    .uninit_RESERVED : ALIGN(8)
-    {
-        KEEP(*(.bss.$RESERVED*))
-        . = ALIGN(8) ;
-        _end_uninit_RESERVED = .;
-    } > Ram0_32
-#endif
-
     /* MAIN BSS SECTION */
     .bss : ALIGN(8)
     {
-        _bss = .;
+        __bss_start__ = .;
         *(.bss*)
         *(COMMON)
-        . = ALIGN(8) ;
-        _ebss = .;
-        PROVIDE(end = .);
-        __end__ = .;
+        __bss_end__ = .;
     } > Ram0_32
-
-#if 0
-
-    /* BSS section for Ram1_2 */
-    .bss_RAM2 : ALIGN(8)
-    {
-        *(.bss.$RAM2*)
-        *(.bss.$Ram1_2*)
-        . = ALIGN(8) ;
-    } > Ram1_2
-    /* BSS section for Ram2USB_2 */
-    .bss_RAM3 : ALIGN(8)
-    {
-        *(.bss.$RAM3*)
-        *(.bss.$Ram2USB_2*)
-        . = ALIGN(8) ;
-    } > Ram2USB_2
-#endif
-
-#if 0
-    /* NOINIT section for Ram1_2 */
-    .noinit_RAM2 (NOLOAD) : ALIGN(8)
-    {
-        *(.noinit.$RAM2*)
-        *(.noinit.$Ram1_2*)
-        . = ALIGN(8) ;
-    } > Ram1_2 
-    /* NOINIT section for Ram2USB_2 */
-    .noinit_RAM3 (NOLOAD) : ALIGN(8)
-    {
-        *(.noinit.$RAM3*)
-        *(.noinit.$Ram2USB_2*)
-        . = ALIGN(8) ;
-    } > Ram2USB_2 
-    
-    /* DEFAULT NOINIT SECTION */
-    .noinit (NOLOAD): ALIGN(8)
-    {
-        _noinit = .;
-        *(.noinit*) 
-        . = ALIGN(8) ;
-        _end_noinit = .;
-    } > Ram0_32
-#endif
 
     PROVIDE(_pvHeapStart = .);
     .heap :
