@@ -13,7 +13,18 @@ int main()
     DigitalOut led(LED1);
     thread_sleep_for(500);
 
-    printf("[Build] %s %s\n", __DATE__, __TIME__);
+    printf("\n[Build] %s %s\n", __DATE__, __TIME__);
+
+#if defined (__GNUC__)
+#if defined (__ARMCC_VERSION)
+    printf("Built with ARM compiler 6\n");
+    printf("Arm compiler version %d\n", __ARMCC_VERSION);
+#else
+    printf("Built with GNU compiler\n");
+    printf("Compatible GCC version %d.%d, %s\n", __GNUC__, __GNUC_MINOR__, __VERSION__);
+#endif
+#endif
+
 #ifdef MBED_MAJOR_VERSION
     printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
 #endif

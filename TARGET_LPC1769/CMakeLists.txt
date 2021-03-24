@@ -9,12 +9,6 @@ elseif(${MBED_TOOLCHAIN} STREQUAL "GCC_ARM")
     set(STARTUP_FILE ../mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/TOOLCHAIN_GCC_ARM/startup_LPC17xx.S)
 endif()
 
-set_property(
-    GLOBAL PROPERTY
-    MBED_TARGET_LINKER_FILE
-        ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE}
-)
-
 target_include_directories(mbed-core
     INTERFACE
         .
@@ -44,3 +38,11 @@ target_sources(mbed-core
         ../mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/system_LPC17xx.c
         ${STARTUP_FILE}
 )
+
+target_link_libraries(mbed-core INTERFACE mbed-cmsis-cortex-m)
+
+add_library(mbed-lpc1769 INTERFACE)
+
+target_link_libraries(mbed-lpc1769 INTERFACE mbed-core)
+
+mbed_set_linker_script(mbed-lpc1769 ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})

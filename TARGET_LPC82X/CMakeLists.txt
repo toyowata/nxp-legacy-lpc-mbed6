@@ -16,12 +16,6 @@ if("SSCI824" IN_LIST MBED_TARGET_LABELS)
     set(PINNAME TARGET_SSCI824)
 endif()
 
-set_property(
-    GLOBAL PROPERTY
-    MBED_TARGET_LINKER_FILE
-        ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE}
-)
-
 target_include_directories(mbed-core
     INTERFACE
         ${PINNAME}
@@ -44,3 +38,15 @@ target_sources(mbed-core
         spi_api.c
         us_ticker.c
 )
+
+target_link_libraries(mbed-core INTERFACE mbed-cmsis-cortex-m)
+
+add_library(mbed-lpc82x INTERFACE)
+
+target_link_libraries(mbed-lpc82x INTERFACE mbed-core)
+
+add_library(mbed-lpc824 INTERFACE)
+add_library(mbed-ssci824 INTERFACE)
+
+mbed_set_linker_script(mbed-lpc824 ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})
+mbed_set_linker_script(mbed-ssci824 ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})

@@ -19,17 +19,11 @@ if("LPC11U35_501" IN_LIST MBED_TARGET_LABELS)
     set(PINNAME TARGET_MCU_LPC11U35/TARGET_LPC11U35_501)
 endif()
 
-set_property(
-    GLOBAL PROPERTY
-    MBED_TARGET_LINKER_FILE
-        ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE}
-)
-
 target_include_directories(mbed-core
     INTERFACE
+        ${PINNAME}
         .
         device
-        ${PINNAME}
 )
 
 target_sources(mbed-core
@@ -51,3 +45,16 @@ target_sources(mbed-core
         device/cmsis_nvic.c
         ${STARTUP_FILE}
 )
+
+target_link_libraries(mbed-core INTERFACE mbed-cmsis-cortex-m)
+
+add_library(mbed-lpc11uxx INTERFACE)
+
+target_link_libraries(mbed-lpc11uxx INTERFACE mbed-core)
+
+add_library(mbed-airio-base INTERFACE)
+add_library(mbed-ae-lpc11u35-mb INTERFACE)
+add_library(mbed-lpc11u35-501 INTERFACE)
+
+mbed_set_linker_script(mbed-lpc11uxx ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})
+

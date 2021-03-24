@@ -62,4 +62,3 @@ Remove `"bare-metal"` from `requires` key in the mbed_app.json.
 ## Known issues
 * LPC824 CLI2 build (GCC_ARM) binary doesn't boot-up
 * Mbed CLI2 doesn't seem to support `--flash` option for custom target
-* Current cmake build file doesn't compatible with Mbed CLI2 (mbed-tools) v7.x onwwards
