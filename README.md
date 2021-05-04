@@ -13,7 +13,9 @@ $ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
 ```
 $ mbed-tools import https://github.com/toyowata/nxp-legacy-lpc-mbed6
 $ cd nxp-legacy-lpc-mbed6
-$ mbed-tools compile -m LPC11U68 -t gcc_arm --flash
+$ mbed-tools compile -m LPC11U68 -t gcc_arm
+$ python postbuild.py {build_dir}/nxp-legacy-lpc-mbed6.bin
+$ cp -X {build_dir}/nxp-legacy-lpc-mbed6.bin {mbed_drive}
 ```
 ## Mbed Studio
 * Launch Mbed Studio application
@@ -60,5 +62,4 @@ Remove `"bare-metal"` from `requires` key in the mbed_app.json.
 ```
 
 ## Known issues
-* LPC824 CLI2 build (GCC_ARM) binary doesn't boot-up
 * Mbed CLI2 doesn't seem to support `--flash` option for custom target
