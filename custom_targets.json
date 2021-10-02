@@ -101,7 +101,7 @@
         "detect_code": ["CA01"]
     },
     "LPC824": {
-        "supported_form_factors": ["ARDUINO"],
+        "supported_form_factors": ["FF_ARDUINO_UNO"],
         "core": "Cortex-M0+",
         "extra_labels": ["NXP", "LPC82X"],
         "is_disk_virtual": true,
@@ -178,7 +178,7 @@
     },
     "LPC1549": {
         "inherits": ["LPCTarget"],
-        "supported_form_factors": ["ARDUINO"],
+        "supported_form_factors": ["FF_ARDUINO_UNO"],
         "core": "Cortex-M3",
         "default_toolchain": "ARM",
         "extra_labels": ["NXP", "LPC15XX"],
@@ -275,7 +275,7 @@
         "device_name": "LPC1769"
     },
     "LPC11U68": {
-        "supported_form_factors": ["ARDUINO"],
+        "supported_form_factors": ["FF_ARDUINO_UNO"],
         "core": "Cortex-M0+",
         "default_toolchain": "ARM",
         "extra_labels": ["NXP", "LPC11U6X"],

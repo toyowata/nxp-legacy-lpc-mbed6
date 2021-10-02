@@ -128,8 +128,8 @@ typedef enum {
     LED4 = LED_BLUE,
     
     // Serial to USB pins
-    USBTX = P0_19,
-    USBRX = P0_18,
+    CONSOLE_TX = P0_19,
+    CONSOLE_RX = P0_18,
     
     // Arduino Shield Receptacles Names
     D0 = P0_18,
@@ -157,7 +157,7 @@ typedef enum {
     A5 = P0_4, // same port as SCL
     SDA= P0_5, // same port as A4
     SCL= P0_4, // same port as A5
-    
+
     // Not connected
     NC = (int)0xFFFFFFFF,
 } PinName;

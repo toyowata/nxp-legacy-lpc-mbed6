@@ -1,6 +1,11 @@
 # Copyright (c) 2020 ARM Limited. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+add_library(mbed-lpc11uxx INTERFACE)
+add_library(mbed-airio-base INTERFACE)
+add_library(mbed-ae-lpc11u35-mb INTERFACE)
+add_library(mbed-lpc11u35-501 INTERFACE)
+
 if(${MBED_TOOLCHAIN} STREQUAL "ARM")
     set(LINKER_FILE device/TOOLCHAIN_ARM_STD/LPC11U35.sct)
     set(STARTUP_FILE device/TOOLCHAIN_ARM_STD/startup_LPC11xx.S)
@@ -47,14 +52,9 @@ target_sources(mbed-core
 )
 
 target_link_libraries(mbed-core INTERFACE mbed-cmsis-cortex-m)
-
-add_library(mbed-lpc11uxx INTERFACE)
-
 target_link_libraries(mbed-lpc11uxx INTERFACE mbed-core)
 
-add_library(mbed-airio-base INTERFACE)
-add_library(mbed-ae-lpc11u35-mb INTERFACE)
-add_library(mbed-lpc11u35-501 INTERFACE)
-
 mbed_set_linker_script(mbed-lpc11uxx ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})
-
+mbed_set_linker_script(mbed-airio-base  ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})
+mbed_set_linker_script(mbed-ae-lpc11u35-mb ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})
+mbed_set_linker_script(mbed-lpc11u35-501 ${CMAKE_CURRENT_SOURCE_DIR}/${LINKER_FILE})

@@ -62,4 +62,4 @@ Remove `"bare-metal"` from `requires` key in the mbed_app.json.
 ```
 
 ## Known issues
-* Mbed CLI2 doesn't seem to support `--flash` option for custom target
+* None

@@ -206,7 +206,7 @@ void serial_init(serial_t *obj, PinName tx, PinName rx)
     /* Enable UART */
     obj->uart->CFG |= UART_EN;
 
-    is_stdio_uart = ((tx == USBTX) && (rx == USBRX));
+    is_stdio_uart = ((tx == CONSOLE_TX) && (rx == CONSOLE_RX));
 
     if (is_stdio_uart) {
         stdio_uart_inited = 1;

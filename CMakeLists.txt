@@ -9,7 +9,11 @@ set(APP_TARGET nxp-legacy-lpc-mbed6)
 
 include(${MBED_PATH}/tools/cmake/app.cmake)
 
+project(${APP_TARGET})
+
 add_subdirectory(${MBED_PATH})
+
+add_executable(${APP_TARGET})
 
 if("LPC11U68" IN_LIST MBED_TARGET_LABELS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/TARGET_LPC11U6X)
@@ -27,11 +31,7 @@ if("LPC1769" IN_LIST MBED_TARGET_LABELS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/TARGET_LPC1769)
 endif()
 
-add_executable(${APP_TARGET})
-
 mbed_configure_app_target(${APP_TARGET})
-
-project(${APP_TARGET})
 
 target_sources(${APP_TARGET}
     PRIVATE
@@ -43,6 +43,7 @@ target_link_libraries(${APP_TARGET}
     PRIVATE
         mbed-baremetal
         mbed-storage
+        mbed-events
 )
 
 mbed_set_post_build(${APP_TARGET})

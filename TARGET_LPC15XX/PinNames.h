@@ -46,8 +46,8 @@ typedef enum {
     LED4 = LED_BLUE,
     
     // Serial to USB pins
-    USBTX = P0_18,
-    USBRX = P0_13,
+    CONSOLE_TX = P0_18,
+    CONSOLE_RX = P0_13,
     
     // Arduino Shield Receptacles Names
     D0 = P0_13,

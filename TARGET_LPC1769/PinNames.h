@@ -124,8 +124,8 @@ typedef enum {
     USER_BUTTON = P2_10,
     SW2 = USER_BUTTON,
 
-    USBTX = P0_2,
-    USBRX = P0_3,
+    CONSOLE_TX = P0_2,
+    CONSOLE_RX = P0_3,
 
     // Not connected
     NC = (int)0xFFFFFFFF,
