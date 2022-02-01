@@ -17,6 +17,8 @@
 
 #include "can_api.h"
 
+#if DEVICE_CAN
+
 #include "cmsis.h"
 #include "mbed_error.h"
 
@@ -308,7 +310,7 @@ static inline void can_irq() {
 }
 
 // Register CAN object's irq handler
-void can_irq_init(can_t *obj, can_irq_handler handler, uint32_t id) {
+void can_irq_init(can_t *obj, can_irq_handler handler, uintptr_t id) {
     irq_handler = handler;
     can_irq_id = id;
 }
@@ -720,3 +722,5 @@ const PinMap *can_td_pinmap()
 {
     return PinMap_CAN_testing;
 }
+
+#endif // DEVICE_CAN

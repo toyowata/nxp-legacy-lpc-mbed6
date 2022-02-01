@@ -141,9 +141,8 @@ typedef enum {
     // Not connected
     NC = (int)0xFFFFFFFF,
 
-    // Standard but not supported pins
-    USBTX = UART_TX,
-    USBRX = UART_RX,
+    CONSOLE_TX = UART_TX,
+    CONSOLE_RX = UART_RX,
 
 } PinName;
 
