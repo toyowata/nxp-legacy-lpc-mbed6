@@ -19,12 +19,20 @@ const char array_5[1024 *32] = {"five"};
 const char array_6[1024 *64] = {"six"};
 #endif
 
+InterruptIn button(USER_BUTTON);
+DigitalOut led(LED1);
+
+void flip()
+{
+    led = !led;
+}
+
 int main()
 {
-    // Initialise the digital pin LED1 as an output
-    DigitalOut led(LED1);
     thread_sleep_for(500);
-
+    button.mode(PullUp);
+    button.fall(&flip);
+    
     printf("\n[Build] %s %s\n", __DATE__, __TIME__);
 
 #if defined (__GNUC__)
@@ -41,7 +49,7 @@ int main()
     printf("Mbed OS version %d.%d.%d\n\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
 #endif
     printf("hello, Mbed OS\n");
-    printf("SystemCoreClock = %ld\n", SystemCoreClock);
+    printf("SystemCoreClock = %lu\n", (unsigned long)SystemCoreClock);
 
 #if (ROM_TEST == 1)
     printf("\n[ROM test result]\n");

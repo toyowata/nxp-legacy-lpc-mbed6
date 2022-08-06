@@ -97,6 +97,10 @@ typedef enum {
     LED2 = LED_GREEN,
     LED3 = LED_BLUE,
     LED4 = LED_BLUE,
+
+    USER_BUTTON = P0_4,
+    SW1 = USER_BUTTON,
+    SW2 = P0_12,
     
     // Serial to USB pins
     CONSOLE_TX = P0_7,

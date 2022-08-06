@@ -49,6 +49,11 @@ typedef enum {
     CONSOLE_TX = P0_18,
     CONSOLE_RX = P0_13,
     
+    SW1 = P0_17,
+    SW2 = P1_11,
+    SW3 = P1_9,
+    USER_BUTTON = SW1,
+
     // Arduino Shield Receptacles Names
     D0 = P0_13,
     D1 = P0_18,

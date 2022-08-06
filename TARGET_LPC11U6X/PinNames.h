@@ -130,6 +130,10 @@ typedef enum {
     // Serial to USB pins
     CONSOLE_TX = P0_19,
     CONSOLE_RX = P0_18,
+
+    SW1 = P0_16,
+    SW2 = P0_1,
+    USER_BUTTON = P0_16,
     
     // Arduino Shield Receptacles Names
     D0 = P0_18,

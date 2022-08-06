@@ -57,7 +57,7 @@ void gpio_irq5(void) {handle_interrupt_in(5);}
 void gpio_irq6(void) {handle_interrupt_in(6);}
 void gpio_irq7(void) {handle_interrupt_in(7);}
 
-int gpio_irq_init(gpio_irq_t *obj, PinName pin, gpio_irq_handler handler, uint32_t id) {
+int gpio_irq_init(gpio_irq_t *obj, PinName pin, gpio_irq_handler handler, uintptr_t id) {
     // PINT only supprt GPIO port 0 and 1 interrupt
     if (pin >= P2_0) return -1;
     
