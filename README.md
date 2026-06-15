@@ -1,16 +1,33 @@
 # NXP legacy LPC target support for Mbed OS 6 baremetal
 Custom target boards support for legacy NXP LPC series MCUs
 
+## Common setup
+```
+$ pyenv global 3.10.20
+$ python3 --version
+Python 3.10.20
+
+$ python3 -m venv myenv_mbed
+$ source ./myenv_mbed/bin/activate
+$ pip install "Cython<3" wheel
+$ pip install --no-build-isolation "hidapi==0.7.99.post21"
+$ wget --no-check-certificate  https://github.com/ARMmbed/mbed-os/raw/refs/heads/master/requirements.txt
+$ pip install -r ./requirements.txt
+
+```
+
 # How to build and flash to target board
 
 ## Mbed CLI 1
 ```
+$ pip install mbed-cli
 $ mbed-cli import https://github.com/toyowata/nxp-legacy-lpc-mbed6
 $ cd nxp-legacy-lpc-mbed6
 $ mbed-cli compile -m AE_LPC11U35_MB -t gcc_arm --flash
 ```
 ## Mbed CLI 2
 ```
+$ pip install mbed-tools
 $ mbed-tools import https://github.com/toyowata/nxp-legacy-lpc-mbed6
 $ cd nxp-legacy-lpc-mbed6
 $ mbed-tools compile -m LPC11U68 -t gcc_arm
