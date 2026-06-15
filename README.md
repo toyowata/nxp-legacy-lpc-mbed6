@@ -5,9 +5,9 @@ Custom target boards support for legacy NXP LPC series MCUs
 
 ## Mbed CLI 1
 ```
-$ mbed import https://github.com/toyowata/nxp-legacy-lpc-mbed6
+$ mbed-cli import https://github.com/toyowata/nxp-legacy-lpc-mbed6
 $ cd nxp-legacy-lpc-mbed6
-$ mbed compile -m AE_LPC11U35_MB -t gcc_arm --flash
+$ mbed-cli compile -m AE_LPC11U35_MB -t gcc_arm --flash
 ```
 ## Mbed CLI 2
 ```
@@ -17,12 +17,6 @@ $ mbed-tools compile -m LPC11U68 -t gcc_arm
 $ python postbuild.py {build_dir}/nxp-legacy-lpc-mbed6.bin
 $ cp -X {build_dir}/nxp-legacy-lpc-mbed6.bin {mbed_drive}
 ```
-## Mbed Studio
-* Launch Mbed Studio application
-* Menu [File] - [Import Program...]
-* Put `https://github.com/toyowata/nxp-legacy-lpc-mbed6` in the URL box
-* Press `Add Program` button
-* Select target and build program
 
 ## Support target board
 
