@@ -49,7 +49,7 @@ $ cp -X {build_dir}/nxp-legacy-lpc-mbed6.bin {mbed_drive}
 
 ## DAPLink firmware binary
 
-* DAPLink interface firmware for AE-LPC11U35-MB [ae-lpc11u35-mb_crc.zip](https://www.dropbox.com/s/36kayln4iz1vbbk/ae-lpc11u35-mb_crc.zip?dl=0)  
+* DAPLink interface firmware for AE-LPC11U35-MB [ae-lpc11u35-mb_crc.zip](https://drive.google.com/file/d/1jvbjJb5MK06aKPm8xUJiYSyBmN-BdrGO/view?usp=drivesdk)  
 Reference: https://qiita.com/toyowata/items/a57ee1dfa884b29c298d
 * DAPLink interface firmware for Airio Base [lpc11u35_airio_base_if_crc.bin](./daplink/lpc11u35_airio_base_if_crc.bin)
 * DAPLink interface firmware for NXP LPCXpresso1769 (OM13085) [lpc11u35_lpc1769_if_crc.bin](./daplink/lpc11u35_lpc1769_if_crc.bin)  
